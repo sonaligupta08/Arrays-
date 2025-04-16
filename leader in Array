@@ -1,0 +1,28 @@
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int n = arr.length;
+        int max = -1;  
+
+        // Traverse the array from right to left
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = arr[i];  // Store the current element
+            arr[i] = max;       // Replace current element with the max value to the right
+            max = Math.max(max, temp);  // Update max if the current element is larger
+        }
+
+        return arr;  // Return the modified array
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[] arr = {17, 18, 5, 4, 6, 1};  // Input array
+
+        // Call the replaceElements method
+        int[] ans = sol.replaceElements(arr);
+
+        // Print the result array with spaces between the numbers
+        for (int val : ans) {
+            System.out.print(val + " ");  // Add a space between numbers for better readability
+        }
+    }
+}
